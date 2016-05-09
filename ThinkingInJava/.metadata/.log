@@ -1,0 +1,17 @@
+!SESSION 2010-05-04 15:28:46.903 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_16
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data D:\Workspace\James_test\JavaThinking\JavaThinking
+
+!ENTRY org.eclipse.ui.workbench 2 0 2010-05-04 15:28:57.622
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2010-05-04 15:28:57.622
+!MESSAGE Conflict for 'AUTOGEN:::com.ibm.rational.clearcase.ui.plugin.actions.IProjectContributions/com.ibm.rational.clearcase.ui.actions.ComparePredecessorAction':
+HandlerActivation(commandId=AUTOGEN:::com.ibm.rational.clearcase.ui.plugin.actions.IProjectContributions/com.ibm.rational.clearcase.ui.actions.ComparePredecessorAction,
+	handler=ActionDelegateHandlerProxy(null,com.ibm.rational.clearcase.ui.plugin.CTViewActionDelegate),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@5b78cf),sourcePriority=16384)
+HandlerActivation(commandId=AUTOGEN:::com.ibm.rational.clearcase.ui.plugin.actions.IProjectContributions/com.ibm.rational.clearcase.ui.actions.ComparePredecessorAction,
+	handler=ActionDelegateHandlerProxy(null,com.ibm.rational.clearcase.ui.plugin.CTViewActionDelegate),
+	expression=WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@5b78cf),sourcePriority=16384)

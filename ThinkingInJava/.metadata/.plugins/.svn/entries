@@ -1,0 +1,52 @@
+10
+
+dir
+34
+svn://localhost/trunk/JavaThinking/JavaThinking/.metadata/.plugins
+svn://localhost
+
+
+
+2010-05-12T14:16:47.453125Z
+33
+james
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c1a0d3ec-5953-4444-a406-dbb5a8c36491
+
+org.eclipse.ui.intro
+dir
+
+org.eclipse.jdt.core
+dir
+
+org.eclipse.core.runtime
+dir
+
+org.eclipse.jdt.ui
+dir
+
+org.eclipse.ui.ide
+dir
+
+org.eclipse.ui.workbench
+dir
+
+com.mousefeed
+dir
+
+org.eclipse.core.resources
+dir
+

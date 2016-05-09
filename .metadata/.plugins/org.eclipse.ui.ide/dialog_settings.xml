@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\WorkspaceThinking\ThinkingJvm\BestPracticeJvm"/>
+			<item value="D:\WorkspaceThinking\ThinkingConcurrency\JavaConcurrencyInPractice"/>
+			<item value="D:\WorkspaceThinking\ThinkingJavaBAK\JavaDataStructure"/>
+			<item value="D:\WorkspaceThinking\ThinkingJavaBAK\JavaPatterns"/>
+			<item value="D:\WorkspaceThinking\ThinkingJavaBAK\ThinkingJava8\Java8Impatient"/>
+			<item value="D:\WorkspaceThinking\ThinkingJavaBAK\JavaThinking"/>
+			<item value="D:\WorkspaceThinking\ThinkingJavaBAK\CoreJava"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

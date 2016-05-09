@@ -1,0 +1,11 @@
+第四章: 链表
+	package edu.colorado.nodes
+
+IntNode.java
+
+edu.colorado.collections.IntLinkedBag
+	使用链表实现的包ADT
+
+edu.colorado.collections.DoubleLinkedSeq
+	使用链表实现的序列ADT
+

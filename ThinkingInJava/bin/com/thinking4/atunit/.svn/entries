@@ -1,0 +1,84 @@
+10
+
+dir
+0
+svn://localhost/trunk/JavaThinking/JavaThinking/src/com/thinking4/atunit
+svn://localhost
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c1a0d3ec-5953-4444-a406-dbb5a8c36491
+
+Test.java
+file
+
+
+
+add
+
+AtUnit.java
+file
+
+
+
+add
+
+AtUnitRemover.java
+file
+
+
+
+add
+
+TestProperty.java
+file
+
+
+
+add
+
+TestObjectCreate.java
+file
+
+
+
+add
+
+readme.txt
+file
+
+
+
+add
+
+ClassNameFinder.java
+file
+
+
+
+add
+
+TestObjectCleanup.java
+file
+
+
+
+add
+

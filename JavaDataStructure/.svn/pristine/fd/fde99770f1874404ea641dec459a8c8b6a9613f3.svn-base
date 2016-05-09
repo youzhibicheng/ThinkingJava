@@ -1,0 +1,165 @@
+第三章: 集合类
+	package edu.colorado.collections;
+
+第四章: 链表
+	package edu.colorado.nodes
+
+第五章: 通用程序设计
+	package edu.colorado.collections;
+
+第六章: 栈
+	package edu.colorado.collections;
+	先进后出LaterInFirstOut LIFO
+	数据插入和删除只在一端(栈顶)进行
+	java.util.Stack
+	applications.IsBalancedDemonstration
+		括号的平衡
+	applications.EvaluateDemonstration
+		算数表达式求值
+		使用了2个栈:
+			1. 字符栈
+			2. 双精度实数构成的栈
+		假设所有输入非负
+		假设表达式的格式是正确的
+		假设表达式完全带括号,且只使用(和)
+	栈ADT的实现
+		1. 使用数组
+		edu.colorado.collections.ArrayStack
+		2. 使用链表
+		edu.colorado.collections.LinkedStack
+	更复杂的栈应用
+	计算和转换表达式是栈典型的应用
+	
+第七章: 队列
+	FIFO	队尾插入,队头移除
+	java.util.LinkedList	类
+	java.util.Queue			接口
+	applications.Palindrome	回文(正向和逆向读取结果相同的字符串)
+	
+	edu.colorado.simulations.Averager			计算一组数的平均值,追踪平均等待时间和清洗的汽车总数
+	edu.colorado.simulations.BooleanSource		true有新客户到达,false没有新客户到达
+	edu.colorado.simulations.Washer				模拟自动洗车机的对象
+	applications.CarWash						主程序
+		洗车模拟
+	Queue类的实现
+	edu.colorado.collections.ArrayQueue
+		数组实现
+	edu.colorado.collections.LinkedQueue
+		链表实现
+	优先队列
+	数值越大,优先级越高
+	优先级队列-使用普通队列的实现
+		需要实现
+	优先级队列-使用链表实现
+		需要实现
+	Java优先级队列-java.util.PriorityQueue
+
+第八章: 递归思想
+	applications.WriteVertical
+	递归研究: 分形
+	applets.Fractal
+	递归研究: 迷宫
+	applications.Maze
+	
+第九章: 树
+	非线性结构
+	结点/根节点/叶子结点/左孩子/右孩子/双亲/兄弟/祖先/后代/子树/结点的左子树和右子树/结点的深度/树的深度
+	满二叉树: 每个叶子结点深度都相同, 每个非叶子结点都有2个孩子
+	完全二叉树: 满二叉树,从左至右添加新叶子结点,所有新叶子结点具有相同的深度,并且总是先添加最左边的一个结点
+	决策树: yes/no 二叉树
+	完全二叉树的数组表示
+	使用结点类表示二叉树
+		edu.colorado.nodes.BTNode
+	猜动物
+		applications.AnimalGuess
+	二叉查找树
+		edu.colorado.collections.IntTreeBag
+		
+第十章: 树项目
+	堆 
+	B树
+	B树的集合类
+		edu.colorado.collections.IntBalancedSet
+	java对树的支持
+		javax.swing.tree.DefaultMutableTreeNode
+		applets.TreeExample
+	树,日志和时间复杂度分析
+	
+第十一章: 查找
+	顺序查找/线性查找
+	二分查找
+	二分查找只有在数组元素有序时才能使用
+	散列
+	edu.colorado.collections.Table
+	
+第十二章: 排序
+	选择排序
+	applications.Select
+	插入排序
+	applications.Insert
+	递归排序算法
+	归并排序
+	applications.Mergesort
+	快速排序
+	applications.Quicksort
+	需要自己实现
+	堆排序
+	堆排序组合了归并排序的时间效率和快速排序的空间效率
+	applications.Heapsort
+	
+第十三章: 使用扩展类实现软件重用
+	扩展类
+	edu.colorado.simulations.Clock
+	edu.colorado.simulations.CuckooClock
+	edu.colorado.simulations.Clock24
+	模拟生态系统
+	edu.colorado.simulations.Organism
+	edu.colorado.simulations.Animal
+	edu.colorado.simulations.Plant
+	edu.colorado.simulations.Herbivore
+	applications.Blob
+	池塘生活模拟程序
+	PondLife.PondLife
+	
+	抽象类和Game类
+	edu.colorado.games.AbstractGame
+	edu.colorado.games.Connect4
+	
+第十四章: 图
+	无向图
+	有向图
+	利用邻接矩阵表示图
+	使用 二维数组 存储 邻接矩阵
+	使用 边列表 存储 邻接矩阵
+	使用 边集合 存储 邻接矩阵
+	
+
+Data Structures and Other Objects Using Java (3rd Edition)
+作者: Michael Main 
+出版社: Addison Wesley
+出版年: 2005-10-14
+页数: 832
+定价: USD 114.00
+装帧: Paperback
+ISBN: 9780321375254
+
+Data Structures and Other Objects Using Java (Fourth Edition) 
+by Michael Main 
+ISBN 0-13-257624-4
+
+For Online Browsing:
+http://www.cs.colorado.edu/~main/applets All applets from the book.
+http://www.cs.colorado.edu/~main/applications Applications (with main functions) from the book.
+http://www.cs.colorado.edu/~main/edu/colorado/ All the edu.colorado packages.
+http://www.cs.colorado.edu/~main/docs/index.html All the documentation from the book.
+
+
+Download the dsjava.zip file by RIGHT clicking and choosing Save Target As. You may download this file to any directory, and then unzip it. For example, I unzipped mine in a folder called \JavaBook. You should find these subfolders after unzipping:
+applications
+applets
+docs
+edu
+Your own programs do not need to be in same folder as the samples, but when you compile (with the javac command) and run (with the java command) you must tell both commands where to find the classes that you are importing. For example, you can compile and run ThrottleDemonstration.java from Figure 2.3 with these commands (assuming that ThrottleDemonstration.java is in the current folder):
+javac -classpath .;\JavaBook ThrottleDemonstration.java
+java -classpath .;\JavaBook ThrottleDemonstration
+These commands give extra information about the classpath, telling the javac and java commands to look first in the current folder (which is represented by the period before the semi-colon) and in the folder called \JavaBook). If you are using some programming environment that does not use the javac and java commands directly, then you'll need to find out how that environment goes about setting the classpath variables.

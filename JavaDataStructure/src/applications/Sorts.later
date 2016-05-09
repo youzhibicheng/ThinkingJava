@@ -1,0 +1,70 @@
+// File: Sorts.java
+// A Java application to illustrate the several methods for sorting an array.
+// Additional javadoc documentation is available at:
+//   http://www.cs.colorado.edu/~main/docs/Sorts.html
+
+import edu.colorado.io.EasyReader;
+ 
+/******************************************************************************
+* The <CODE>Sorts</CODE> Java application allows the user to run several 
+* different methods for sorting an array.
+*
+* <p><dt><b>Java Source Code for this class:</b><dd>
+*   <A HREF="../applications/Sorts.java">
+*   http://www.cs.colorado.edu/~main/applications/SimpleSearcher.java
+*   </A>
+*
+* @author Michael Main 
+*   <A HREF="mailto:main@colorado.edu"> (main@colorado.edu) </A>
+*
+* @version
+*   Jun 12, 1998
+******************************************************************************/
+public class Sorts
+{
+   /**
+   * The main method allows the user to run several different
+   * methods for sorting an array of integers.
+   * The <CODE>String</CODE> arguments (<CODE>args</CODE>) are not used 
+   * in this implementation.
+   **/
+   public static void main(String[ ] args)
+   {
+      final char BLANK = ' ';
+      final int ARRAY_SIZE = 10;
+      
+      EasyReader stdin = new EasyReader(System.in);
+    
+      int[ ] data;                            // Array of integers to be sorted
+      int[ ] userArray = new int[ARRAY_SIZE]; // Array typed by the user
+      int userInput;                          // Number typed by the user
+      int numberOfElements;                   // How much of the array is used
+      int i;                                  // Array index
+    
+      // Provide some instructions
+      System.out.println("Please type up to " + ARRAY_SIZE + " integers.");
+      System.out.println("Indicate the list's end with a zero.");
+
+      // Read the input numbers
+      numberOfElements = 0;
+      userInput = stdin.intInput( );
+      while ((userInput != 0) && (numberOfElements < ARRAY_SIZE))
+      {
+         userInput[numberOfElements] = userInput;
+         numberOfElements++;
+         userInput = stdin.intInput( );
+      }
+
+      // Sort the numbers several ways and print the result each time
+    
+      // SELECTION SORT
+      System.out.println("Result of selection sort:");
+      data = (int[ ]) userInput.clone( );
+      selectionsort(data, numberOfElements);    
+      System.out.println(data + '\n');
+   }
+   
+   
+}
+
+

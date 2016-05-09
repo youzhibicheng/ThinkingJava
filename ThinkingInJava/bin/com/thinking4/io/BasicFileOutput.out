@@ -1,0 +1,22 @@
+1: package com.thinking4.io;
+2: //: io/BasicFileOutput.java
+3: import java.io.*;
+4: 
+5: public class BasicFileOutput {
+6:   static String file = "src/com/thinking4/io/BasicFileOutput.out";
+7:   public static void main(String[] args)
+8:   throws IOException {
+9:     BufferedReader in = new BufferedReader(
+10:       new StringReader(
+11:         BufferedInputFile.read("src/com/thinking4/io/BasicFileOutput.java")));
+12:     PrintWriter out = new PrintWriter(
+13:       new BufferedWriter(new FileWriter(file)));
+14:     int lineCount = 1;
+15:     String s;
+16:     while((s = in.readLine()) != null )
+17:       out.println(lineCount++ + ": " + s);
+18:     out.close();
+19:     // Show the stored file:
+20:     System.out.println(BufferedInputFile.read(file));
+21:   }
+22: } /* (Execute to see output) *///:~

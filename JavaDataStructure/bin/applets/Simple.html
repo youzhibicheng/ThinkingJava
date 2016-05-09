@@ -1,0 +1,450 @@
+<HEAD>
+<TITLE>How to Write a Simple Applet</TITLE>
+</HEAD>
+
+<H2>How to Write a Simple Applet</H2>
+
+<P>
+A Java applet is a Java program written in a special format to have a 
+graphical user interface. The graphical user interface is also called 
+a GUI (pronounced "gooey"), and it allows a user to interact with a 
+program by clicking the mouse, typing information into boxes, and 
+performing other familiar actions. With a Java applet, GUIs are easy 
+to create even if you've never run into such goo before.
+<P>
+This section shows a pattern for developing such applets. To illustrate 
+the pattern, we'll implement an applet that lets you determine the time
+required for a <I>long</I> voyage.
+When the voyage applet starts, a GUI is created, as shown here: 
+<P>
+<APPLET CODE="Voyage.class" HEIGHT=325 WIDTH=520 IGNORE=""></APPLET>
+<P>
+By the way, the word "applet" means a particular kind of Java program, 
+so you might show the drawing to your boss and say "My applet created 
+this nice GUI." But you can also use the word "applet" to talk about 
+the GUI itself, such as "The applet in this drawing has two text entry
+boxes and a button.
+<P>
+<H3>The Voyage Applet</H3>
+<P>
+The Voyage applet in the above drawing is intended to show some of the simplest GUI components.
+When the applet starts, two text entry boxes appear at the top with the labels 
+"Distance of trip in light years" and "Acceleration of rocket in g's".
+In the middle of the applet is a button labeled "Launch!", and at the bottom of the applet
+is a text area for the applet to write messages to the user.
+<P>
+You can try interacting with the applet a little bit by typing some numbers into the box and then clicking the Launch button.
+<P>
+<H3>The Parts of a Simple Interactive Java Applet</H3>
+<P>
+Here is an outline of the
+<a href="Voyage.java">Voyage.java</a> program that creates the Voyage applet:
+<P>
+<TABLE>
+<TR><TD>
+<PRE>
+// FILE: BagApplet.java
+</PRE>
+<TR><TD BGCOLOR="#EFEFFF" COLSPAN=2>
+<P> <STRONG>1. Import statements.</STRONG> These statements provide the
+items that all applets use:
+<PRE>
+   import java.applet.Applet; // Provides the Applet class.
+   import java.awt.*;         // Provides Button class, etc.
+   import java.awt.event.*;   // Provides ActionEvent, ActionListener 
+<TR>
+<TR><TD BGCOLOR="EFFFEF" COLSPAN=2>
+<P><STRONG>2. The Class Definition.</STRONG> The important parts of the Voyage class definition
+are shown here:
+<PRE>
+   public class BagApplet extends Applet
+   {
+</PRE>
+<TR><TD BGCOLOR="EFFFEF" ROWSPAN=5>
+&nbsp;
+<TR><TD BGCOLOR="EFEFFF">
+<STRONG>2a. Declarations of the applet's components.</STRONG> These will be the
+declarations of buttons, text areas, and other GUI components that
+appear in the applet.
+<TR><TD BGCOLOR="EFEFFF">
+<STRONG>2b. The init method.</STRONG>
+<PRE>
+public void init( )
+{
+   ...
+}
+</PRE>
+<TR><TD BGCOLOR="EFEFFF">
+<STRONG>2c. Implementations of the action listeners.</STRONG>
+This code tells the applet what to do when each of the buttons is pressed.
+<TR><TD BGCOLOR="EFEFFF">
+<STRONG>2d. Implementations of other methods.</STRONG>
+These are methods that are activated from within init to carry out various subtasks.
+<TR><TD BGCOLOR="EFFFEF" COLSPAN=2>
+<PRE>
+   }
+</PRE>
+<TD>
+</TABLE>
+<P>
+
+<H3>The Import Statements</H3>
+<P>
+As with any Java program, we begin with a collection of import statements to tell the compiler about the other classes that we'll be using. In the case of the Voyage applet, we 
+have these three import statements:</P>
+<PRE>
+   import java.applet.Applet;
+   import java.awt.*;
+   import java.awt.event.*;
+</PRE>
+The first import statement provides a class called <CODE>
+Applet</CODE>, which we'll use in a moment. The other two import statements 
+provide items from the abstract windowing toolkit (the &quot;AWT&quot;), which is a 
+collection of classes for drawing buttons and other GUI items.
+<P>
+
+<H3>The Class Definition</H3>
+<P>
+After the import statements, we define a class, much like any other Java class. 
+This class definition begins with the line:</P>
+<PRE>
+   public class Voyage Applet extends Applet
+</PRE>
+The class definition continues down to the last closing bracket of the file. 
+The class is called <CODE>
+Voyage</CODE>, which is certainly a good name, but what does 
+&quot;<CODE>extends Applet</CODE>&quot; mean? 
+It means that the <CODE>Voyage</CODE> class
+will not be written entirely by us. Instead, the class begins by already having 
+many methods of another class called <CODE>
+Applet</CODE>.
+We imported the <CODE>
+Applet</CODE>
+class from <CODE>
+java.applet.Applet</CODE>, and it is provided 
+as part of the Java language so that a class such as <CODE>Voyage</CODE>
+does not have to start from scratch. The act of obtaining methods from another 
+class is called inheritance. The class that provides these methods (such as the <CODE>
+Applet</CODE>
+ class) is called the <b>base class</b>, and the new class (such as our <CODE>
+Voyage</CODE>
+class) is called the <b>extended class</b>. 
+<P>
+
+<H3>Declaration of the Applet's Components</H3>
+<P>
+An applet's components are the buttons and other items that are displayed 
+when the applet runs. These components are declared as instance variables 
+of the class. Our bag applet has several kinds of components: a button,
+text fields (which are the white rectangles), and a text area (which is the large rectangle at
+the bottom part of the applet). In all, there are four important components in the Voyage applet, 
+represented by these four instance variables:</P>
+<PRE>
+   TextField distanceText = new TextField(10);
+   TextField accelerationText = new TextField(10);
+   Button launch = new Button("LAUNCH!");
+   TextArea answers = new TextArea(
+       "I am ready for your first trip.",
+       8,
+       60,
+       TextArea.SCROLLBARS_NONE
+   );
+</PRE>
+<P>
+All the instance variables are declared near the top of the class definition, 
+before any of the method definitions.  They cannot have the usual private keyword
+because they'll be accessed from other classes that we'll see shortly. 
+But before that, let's look at the three kinds of components: button, text field, and text area.
+<P>
+<DL>
+<DT>Button
+<DD>
+A button is a grey rectangle with a label. When a button is created, the constructor is given a string that is printed in the middle of the button. For example, this declaration creates a button called <CODE>
+launch</CODE>, and the label on the button is the string &quot;<CODE>
+LAUNCH!</CODE>&quot;:
+<PRE>
+   Button launch = new Button(&quot;LAUNCH!&quot;);
+</PRE>
+
+<P><DT>Text Field
+<DD>
+A
+text field is a white rectangle that can display one line of text. A text field is set up so that the program's user can click on the field and type information, and the applet can then read that information. 
+Our applet has two text fields.
+The <CODE>TextField</CODE>
+ class has a constructor with one argument--an integer that specifies 
+approximately how many characters can fit in the text field. For example, one of our text fields is declared as:</P>
+<PRE>
+   TextField distanceText = new TextField(10);
+</PRE>
+The <CODE>
+elementText</CODE>
+ text field can hold about 10 characters. The user can actually type beyond 10 characters, but only 10 characters of a long string will be displayed. 
+<P>
+
+<DT>Text Area
+<DD> A
+text area is like a text field with more than one line. Its constructor has four
+arguments are documented in the comments here:
+<PRE>
+   TextArea answers = new TextArea(
+       "I am ready for your first trip.", // Initial text
+       8,                                 // Number of rows
+       60,                                // Number of columns
+       TextArea.SCROLLBARS_NONE           // Do not include scroll bars
+   );
+</PRE>
+This large text area appears at the bottom of the applet. 
+The intention is to use the text area to display messages to the user.</P>
+</DL>
+<P>
+The declarations we have seen created the three kinds of components: 
+<CODE>
+Button, TextField, TextArea</CODE>.
+All three classes are part of the <CODE>
+java.awt</CODE>
+ package that is imported by our applet. 
+When we declare a button (or other component) and create it with the constructor, it does not immediately appear in the GUI. How do the objects get placed in the GUI? Also, how does the applet know what to do when the user clicks on a button or takes some other action? The answers to these two questions lie in a special applet method called <CODE>
+init</CODE>, which we'll discuss next.
+<P>
+
+<H3>The init Method</H3>
+<P>
+A Java application program has a special static method called <CODE>
+main</CODE>.
+A Java applet does not have <CODE>
+main</CODE>.
+Instead, an applet has a special nonstatic method called <CODE>
+init</CODE>. When an applet runs, the runtime system creates an object of the 
+applet class, and activates <CODE>
+init(&nbsp;)</CODE>
+ for that object. There are several other applet methods that the runtime 
+system also activates at various times, but an interactive test program needs only <CODE>
+init</CODE>.
+<P>
+Our <CODE>init</CODE>
+ method carries out four kinds of actions:</P>
+<P>
+<UL>
+<LI><b>Adding items to the GUI.</B>
+<P>We can add one of the interactive components to the GUI. This is done with an applet method called add. The method has one argument, which is the component that is being added to the GUI. For example, one of our buttons is sizeButton , so we can write the statement: 
+<PRE>
+   add(launch);
+</PRE>
+As components are added, the GUI fills up from left to right. If there is no room for a component on the current line, then the GUI moves down and starts a new row of components. Later you can learn more sophisticated ways of laying out the components of a GUI, but the simple left-to-right method used by an applet is a good starting point.
+<P>
+<LI><b>Displaying messages.</B>
+<P>
+We can display messages in the GUI. Each message is a fixed string that provides some information to the user. Each of these messages is a Label object (from the package java.awt ). To create and display a message, we activate add, with a newly created Label as the argument. For example: 
+<PRE>
+   add(new Label("Distance of trip in light years"));
+</PRE>
+The Label constructor has one argument, which is the string that you want to display. The add method will put the message in the next available spot of the GUI.
+<P>
+
+<LI><b>New lines and horizontal lines.</b>
+<P>
+If our applet class has other methods (besides init), then we can activate these other methods. For example, we plan to have two other methods in the IntArrayBag class: 
+<PRE>
+   void addNewLine( );
+   void addHorizontalLine(Color c);
+</PRE>
+The addNewLine method forces the GUI to start a new line, even if there's room for more components on the current line. The second method, addHorizontalLine , draws a horizontal line in the specified color. We'll have to define these two methods as part of BagApplet.Java , but they won't be difficult. (The data type Color is part of java.lang . It includes Color.blue and twelve other colors plus the ability to define your own colors.)
+<P>
+
+<LI><b>Activate methods of the components.</b>
+<P>
+The buttons and other components have methods that can be activated. For example, one of the methods of a TextField is called append . The method has one argument, which is a string, and this string is appended to the end of what's already in the text field. One of the statements in our init method will activate append in this way: 
+<PRE>
+   feedback.append("Bon Voyage!\n");
+</PRE>
+This causes the message "Bon Voyage!" to be written in the feedback text field (with a newline character \n at the end of the message). 
+
+</UL>
+<P>
+
+<h3>Action Listeners</h3>
+<P>
+The most important method for buttons involves a new kind of object called an action listener. An action listener is object that an applet programmer creates to describe the action that should be taken when certain events occur. Our Voyage applet will have one kind of action listener called LaunchListener.  
+A LaunchListener is actually a new class that we'll define in a moment. i
+But the only thing you need to know for the init method is how to connect an action listener to a Button . The solution is to activate a method called addActionListener for each Button . For example, to connect the launch button to its action listener, we place this statement in the init method:
+
+     launch.addActionListener(new LaunchListener( ));
+
+Notice that addActionListener is a method of the Button class, and its one argument is a new LaunchListener object. Of course, we still need to implement the LaunchListener class.  We'll look at how this is done in a moment, after we summarize what we've seen so far.
+
+<P>
+<h3>What Can Appear in the Init Method</h3>
+<table border=1>
+<TR><TD COLSPAN=2><STRONG>Methods to Call from an Applet or from a Class That
+Extends an Applet</STRONG>
+<TR><TD><CODE>add(component)</CODE>
+<TD>
+The component may be any of Java's AWT components such as Button, TextArea, or TextField. As components are added, the applet fills up from left to right. If there is no room for a component on the current line, then the applet moves down and starts a new row of components.
+<TR><TD><CODE>addNewLine()<BR>addHorizontalLine(Color&nbsp;c)</CODE>
+<TD>These are not actually Applet methods--you'll need to define them if you want to use them.
+</table>
+
+
+<P>
+<h3>Three Kinds of GUI Components</h3>
+<P>
+<table border=1>
+<TR><TD COLSPAN=2><STRONG>Constructors for Three Useful Applet Components</STRONG>
+<TR><TD><CODE>Button(String&nbsp;label)</CODE>
+<TD>Creates a button with a given label.
+<TR><TD><CODE>TextField(int&nbsp;size)</CODE>
+<TD>Creates a white box for the user to type information. The size is the number of characters.
+<TR><TD><CODE>TextArea(int&nbsp;rows,&nbsp;int&nbsp;columns)
+<TD>Creates a box with the given number of rows and columns--often for displaying information to the user.
+</table>
+<P>
+
+<P>
+<h3>Important Methods That a GUI Object Can Activate</h3>
+<table border=1>
+<TR><TD COLSPAN=2><STRONG>Six Useful Methods for a Component</STRONG>
+<TR><TD><CODE>b.setActionListener (ActionListener&nbsp;act)</CODE>
+<TD>We use b.setActionListener for a Button b. The ActionListener, act, describes the actions to take when the Button b is pressed.
+<TR><TD><CODE>t.append(String&nbsp;message)</CODE>
+<TD>We use t.append for a TextArea t. The specified message is added to the end of the TextArea.
+<TR><TD><CODE>t.getText()</CODE>
+<TD>We use t.getText for a TextField t. The method returns a copy of the String that the user has typed in the field.
+<TR><TD><CODE>t.setEditable (boolean&nbsp;editable)</CODE>
+<TD>The component t can be a TextArea or a TextField. The boolean parameter tells whether you want the user to be able to type text into the component.
+<TR><TD><CODE>t.requestFocus()<BR>t.selectAll()</CODE>
+<TD>We use these methods with a TextField. The requestFocus method causes the mouse to go to the field, and selectAll causes all text to be highlighted.
+<TR><TD><CODE>c.setSize (int&nbsp;width,&nbsp;int&nbsp;height)</CODE>
+<TD>This method may be used with any component c. The components width and height are set to the given values in pixels. 
+</table>
+
+<P>
+<h3>Implementation of the LaunchListener</h3>
+<p>
+The next step of the applet implementation is to design and implement an action listener class for our launch button. The purpose of an action listener is to describe the action that is carried out when a button is pushed. 
+<p>
+Here's the Java syntax for defining an action listener class--the blank line is filled in with your choice of a name for the action listener class.
+<PRE>
+   class _______________ implements ActionListener
+      void actionPerformed(ActionEvent event)
+      {
+         ...
+      }
+   }
+</PRE>
+The phrase " implements ActionListener " informs the Java compiler that the class will have a certain method that is specified in the ActionListener interface that is part of java.awt.* . The method, called actionPerformed , is shown with "..." to indicate where its body should be written. 
+The actionPerformed method will be executed when an action occurs in the action listener's component, such as clicking a button. For example, here is the complete definition of the action listener that handles the clicking of the launch button of our Voyage applet:
+<PRE>
+      public void actionPerformed(ActionEvent event)
+      {
+         double distance;     // Distance of the trip in light years.
+         double acceleration; // Acceleration of the trip in g's.
+         
+         distance = atod(distanceText.getText( ));
+         if (Double.isNaN(distance) || distance &lt; 0)
+         {
+            answers.setText("Type a non-negative distance before launching.");
+            distanceText.requestFocus( );
+            distanceText.selectAll( );
+            return;
+         }
+ 
+         acceleration = atod(accelerationText.getText( ));
+         if (acceleration == Double.NaN || acceleration &lt;= 0)
+         {
+            answers.setText("Type a positive acceleration before launching.");
+            accelerationText.requestFocus( );
+            accelerationText.selectAll( );
+            return;
+         }
+         
+         makeTrip(distance, acceleration);
+      }                   
+</PRE>
+
+This declares a class called LaunchListener, which includes its own actionPerformed method. For most classes, the class definition would go in a separate file called LaunchListener.java. 
+But a separate file is undesirable here because the actionPerformed method needs access to instance variables such as the two text fields. 
+The necessary access can be provided by placing the entire LaunchListener definition within the Voyage class. This is an example of an inner class, where the definition of one class is placed inside of another. An inner class has two key properties:
+<P><UL>
+
+<LI>The larger class that encloses an inner class may use the inner class; but the inner class may not be used elsewhere. 
+
+<P><LI>The inner class may access nonprivate instance variables and methods of the larger class. Some Java implementations also permit an inner class to access private instance variables of the larger class. But other implementations forbid private access from an inner class. (Java implementations that are built into web browsers are particularly apt to forbid the private access.)
+</UL>
+
+So, by making LaunchListener an inner class, the actionPerformed method can activate methods such as answers.setText.
+
+By the way, the actionPerformed method has a parameter called event . For more complex actions, the event can provide more information about exactly which kind of action triggered the actionPerformed method. 
+
+Once an action listener is created, it must be registered with its particular button. The registration is made in the init method. Our applet had this statement to register the LaunchListener object:
+<PRE>
+      // Tell the button what it should do when clicked:
+      launch.addActionListener(new LaunchListener( ));
+</PRE>
+    
+<P><h3>Implementations of Other Methods</h3>
+<P>
+Our applet has two other methods that we've mentioned: (1)  addHorizontalLine , which draws a horizontal line in a specified color; and (2) addNewLine , which causes a new line to start in the GUI, even if there's room for more components on the current line.
+
+Our addHorizontalLine doesn't really draw a line. Instead, it adds a component called a Canvas to the applet. A Canvas is another applet component, like a Button , primarily used for drawing graphical images. The size of the Canvas can be set in pixels, which are the individual dots on a computer screen. Today's typical screens have about 100 pixels per inch, so a Canvas that is only one pixel high looks like a horizontal line. Here's our implementation:
+<PRE>
+   private void addHorizontalLine(Color c)
+   {
+      // Add a Canvas 10000 pixels wide but 
+      // only 1 pixel high, which acts as
+      // a horizontal line.
+      Canvas line = new Canvas( );
+      line.setSize(10000, 1);
+      line.setBackground(c);
+      add(line);
+   }
+</PRE>
+<P>
+Notice that the Canvas is 10,000 pixels wide, which is wide enough to span even the largest applet--at least on today's computer screens.
+<P>
+Our last method, addNewLine , works by calling addHorizontalLine with the color set to the background color of the applet. In effect, we are drawing a horizontal line, but it is invisible since it's the same color as the applet's background. 
+<P>
+The implementation of addNewLine is given in BagApplet.java as part of the complete applet. Look through the whole applet with an eye toward how it can be expanded to test all of the bag's methods or to test a different class.
+
+<P><h3>How to Compile and Run an Applet</h3>
+<P>
+An applet can be compiled just like any other Java program. For example, using the Java Development Kit we can compile BagApplet.java with the command line:
+<PRE>
+   javac Voyage.java
+</PRE>
+<P>
+You may have some other way of compiling Java programs in your development environment, but the result will be the same. The act of compiling produces the file Voyage.class. The compilation will probably produce other files with names such as Voyage$LaunchListener.class . This is the compiled version of the inner class.
+<P>
+Applets were actually created to run as part of a page that you view over the Internet with a web browser. These pages are called html pages, which stands for "hyper-text markup language." So, to run the Voyage applet, we need a small html file. The file, called Voyage.html, should be created by you in the same directory as Voyage.class, and it should contain the two lines of html code shown here:
+<PRE>
+   &lt;applet code="Voyage.class" width=480 height=340&gt;
+   &lt;/applet&gt;
+</PRE>
+<P>
+The first line, containing &lt;applet...&gt; tells the web browser that you are going to start an applet. Usually, you will have at least three pieces of information about the applet:
+<P><DL>
+ 
+ <DT>code = "Voyage.class" 
+ <DD>Tells the browser where to find the compiled class. 
+ 
+ 
+ <P><DT>width = 480 
+ <DD> Tells the width of the applet in pixels.
+
+ <P><DT>height = 340 
+ <DD> Tells the height of the applet in pixels.
+</DL> 
+<P>
+Many Java development environments have a feature to automatically create a small html file such as this.
+<P>
+Once the html file is in place, you can run the applet in one of two ways. One approach is to run an appletviewer, which is a tool that reads an html file and runs any applets that it finds. The Java Development Kit has an appletviewer that is executed from the command line. For example, to run the JDK appletviewer you change to the directory that contains Voyage.html and type the command:
+<P><PRE>
+        appletviewer BagApplet.html
+</PRE>
+<P>
+This command runs the applet. The applet can also be displayed by putting the class and html files in a location that's available to your web browser .
+
+<P><h3>Beyond the init Method</h3>
+<P>
+Our test applet needed to define only the init method. More complex applets can also be created, involving graphical images plus interaction. Graphical applets will generally provide other methods called start , paint , update , stop , and destroy . A good resource is Graphic Java Mastering the AWT by David M. Geary. 
+

@@ -1,0 +1,420 @@
+10
+
+dir
+0
+svn://localhost/trunk/JavaThinking/JavaThinking/src/com/thinking4/io
+svn://localhost
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c1a0d3ec-5953-4444-a406-dbb5a8c36491
+
+LockingMappedFiles.java
+file
+
+
+
+add
+
+UsingBuffers.java
+file
+
+
+
+add
+
+StoreCADState.java
+file
+
+
+
+add
+
+GetChannel.java
+file
+
+
+
+add
+
+UsingRandomAccessFile.java
+file
+
+
+
+add
+
+GetData.java
+file
+
+
+
+add
+
+Blip3.java
+file
+
+
+
+add
+
+Blips.java
+file
+
+
+
+add
+
+TestEOF.java
+file
+
+
+
+add
+
+MakeDirectories.java
+file
+
+
+
+add
+
+xfiles
+dir
+
+
+
+add
+
+AvailableCharSets.java
+file
+
+
+
+add
+
+Echo.java
+file
+
+
+
+add
+
+RecoverCADState.java
+file
+
+
+
+add
+
+GZIPcompress.java
+file
+
+
+
+add
+
+StoringAndRecoveringData.java
+file
+
+
+
+add
+
+ViewBuffers.java
+file
+
+
+
+add
+
+BasicFileOutput.out
+file
+
+
+
+add
+
+IntBufferDemo.java
+file
+
+
+
+add
+
+data2.txt
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+DirList3.java
+file
+
+
+
+add
+
+MyWorld.java
+file
+
+
+
+add
+
+Blips.out
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+Redirecting.java
+file
+
+
+
+add
+
+BasicFileOutput.java
+file
+
+
+
+add
+
+BufferedInputFile.java
+file
+
+
+
+add
+
+ChannelCopy.java
+file
+
+
+
+add
+
+LargeMappedFiles.java
+file
+
+
+
+add
+
+Logon.out
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+X.file
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+PreferencesDemo.java
+file
+
+
+
+add
+
+DirectoryDemo.java
+file
+
+
+
+add
+
+OSExecuteDemo.java
+file
+
+
+
+add
+
+DirList.java
+file
+
+
+
+add
+
+Logon.java
+file
+
+
+
+add
+
+ZipCompress.java
+file
+
+
+
+add
+
+Endians.java
+file
+
+
+
+add
+
+BufferToText.java
+file
+
+
+
+add
+
+ChangeSystemOut.java
+file
+
+
+
+add
+
+FileOutputShortcut.out
+file
+
+
+
+add
+
+SerialCtl.java
+file
+
+
+
+add
+
+Worm.java
+file
+
+
+
+add
+
+FileLocking.java
+file
+
+
+
+add
+
+TransferTo.java
+file
+
+
+
+add
+
+MemoryInput.java
+file
+
+
+
+add
+
+Alien.java
+file
+
+
+
+add
+
+FreezeAlien.java
+file
+
+
+
+add
+
+readme.txt
+file
+
+
+
+add
+
+DirList2.java
+file
+
+
+
+add
+
+FileOutputShortcut.java
+file
+
+
+
+add
+
+FormattedMemoryInput.java
+file
+
+
+
+add
+
+MappedIO.java
+file
+
+
+
+add
+

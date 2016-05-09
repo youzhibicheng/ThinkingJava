@@ -1,0 +1,9 @@
+<TITLE>
+The Tree Example Applet
+</TITLE>
+<H2>
+The Tree Example
+</H2>
+<APPLET CODE="TreeExample.class" HEIGHT=150 WIDTH=250 IGNORE=""></APPLET>
+<BR>
+<HR>

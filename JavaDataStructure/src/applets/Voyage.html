@@ -1,0 +1,46 @@
+<TITLE>
+The Relativistic Rocket Applet
+</TITLE>
+<H2>
+The Relativistic Rocket
+</H2>
+<BR>
+This applet lets you plan how long a trip will take on a rocket that
+travels near the speed of light. You type the distance of the trip
+(measured in light years) and the acceleration of the rocket (measured
+as a multiple of Earth's gravity). The rocket will accelerate at that
+rate for half of the trip, then decelerate at the same rate for the second
+half of the trip.
+<P>
+The time for the trip is measured in two ways: (1) As seen by a person
+who stays behind on Earth, and (2) as measured by you on the ship.
+For your convenience, space-sickness pills are available aft of the
+observation lounge.
+<P>
+<IMG SRC="http://www.cs.colorado.edu/~main/images/rocket.gif" ALIGN="LEFT">
+<APPLET CODE="Voyage.class" HEIGHT=325 WIDTH=520 IGNORE=""></APPLET>
+<BR>
+The equations for the computations came from the
+<A HREF="http://www.desy.de/user/projects/Physics/rocket.html">
+Desy Web Site.</A>
+Here is what I used:
+<OL>
+<LI>Calculate <CODE>d</CODE> as the distance of <B>half</B> the trip in meters.
+(Note: There are about 9.47e15 meters per light year).
+<LI>Calculate <CODE>a</CODE> as the acceleration in meters/sec&#178;.
+(Note: The conversion is 9.81 times the acceleration measured in gravities.)
+<LI>Set <CODE>c</CODE> equal to the speed of light in meters/sec (which is
+3.00e8).
+<LI>The total time on earth, measured in seconds is:
+<BR>
+<CODE>&nbsp;&nbsp; 2 * sqrt( (d*d)/(c*c) + 2*d/a )</CODE>
+
+<LI>The total time for the voyager, measured in seconds is:
+<BR>
+<CPDE>&nbsp;&nbsp; 2 * (c/a) * asinh(a*time_earth/c)
+<BR>
+(Note: <CODE>asinh</CODE> is the inverse hyperbolic sin function, computed
+in Java with the formula <CODE>Math.log(x+Math.sqrt(x*x+1))</CODE>.
+</OL>
+<HR>
+<LI>

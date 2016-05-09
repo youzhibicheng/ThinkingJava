@@ -1,0 +1,1 @@
+通过继承FilterInputStream，我们也能编写自己的IO装饰类
