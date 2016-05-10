@@ -1,1 +1,0 @@
-com.javapatterns.serializable	 专题：JavaBean的“冷藏”和“解冻”

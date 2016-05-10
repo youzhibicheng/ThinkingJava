@@ -1,1 +1,0 @@
-com.javapatterns.mediator  调停者模式

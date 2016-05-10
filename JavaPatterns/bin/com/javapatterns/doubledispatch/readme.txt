@@ -1,1 +1,0 @@
-com.javapatterns.doubledispatch  专题：单分派与多分派  

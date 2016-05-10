@@ -1,1 +1,0 @@
-com.javapatterns.windowadapter  È±Ê¡ÊÊÅäÄ£Ê½  

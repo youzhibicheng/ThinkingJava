@@ -1,1 +1,0 @@
-com.javapatterns.liskov	 里氏代换原则

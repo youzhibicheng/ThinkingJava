@@ -1,84 +1,0 @@
-10
-
-dir
-0
-svn://localhost/trunk/JavaThinking/JavaThinking/src/com/thinking4/annotations/database
-svn://localhost
-add
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-c1a0d3ec-5953-4444-a406-dbb5a8c36491
-
-Uniqueness.java
-file
-
-
-
-add
-
-TableCreationProcessorFactory.java
-file
-
-
-
-add
-
-SQLString.java
-file
-
-
-
-add
-
-Constraints.java
-file
-
-
-
-add
-
-Member.java
-file
-
-
-
-add
-
-TableCreator.java
-file
-
-
-
-add
-
-DBTable.java
-file
-
-
-
-add
-
-SQLInteger.java
-file
-
-
-
-add
-
